@@ -1,0 +1,16 @@
+1. command to apply whole dataset:
+java -cp . LSH -threshold 0.9 -maxFiles 7416113 -inputPath $(TWEET) -outputPath ./output -shingleLength 3 -allcandidates
+
+ATTENTION:-allcandidates will return all candidates that detected by LSH.
+Also you can use:java -cp . LSH -threshold 0.9 -maxFiles 7416113 -inputPath $(TWEET) -outputPath ./output -shingleLength 3 
+This way you will only get the pair that the similarity of signature array is laeger than 0.9
+2. About the makefile
+You use the makefile to easily run the code:
+1)make LSH
+	run the code on the full dataset return all candidates
+2)make LSH.threshold
+	run the code on the full dataset only return pairs that the similarity of signature array is laeger
+3)make Runner
+	this will run the code for parameter analysis for the result got from lsh that return all candidates
+4)make Runner.threshold
+	this will run the code for parameter analysis for the result got from the lsh that only return pairs that the similarity of signature array is laeger than 0.9
